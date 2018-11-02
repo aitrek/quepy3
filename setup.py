@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name="quepy",
-    version="0.2",
+    version="0.3",
     description="A framework to convert natural language to database queries.",
     long_description=open('README.rst').read(),
     author="Rafael Carrascosa, Gonzalo Garcia Berrotaran",
