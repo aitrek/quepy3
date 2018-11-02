@@ -73,7 +73,7 @@ def startapp(name):
     # Create the main folder
     folder = san_name
     if os.path.exists(folder):
-        print "Error: folder '{}' already exists".format(folder)
+        print("Error: folder '{}' already exists".format(folder))
         return
     os.mkdir(folder)
     os.mkdir(os.path.join(folder, folder))
@@ -117,11 +117,11 @@ def startapp(name):
     with open(settings_filename, "w") as fh:
         fh.write(settings_content)
 
-    print "Application template created on: {}".format(san_name)
+    print( "Application template created on: {}".format(san_name))
 
 
 def print_version():
-    print "Quepy {0}".format(quepy.VERSION)
+    print("Quepy {0}".format(quepy.VERSION))
 
 
 def graph_query(app_name, question):
@@ -131,9 +131,9 @@ def graph_query(app_name, question):
 
     try:
         app = quepy.install(app_name)
-    except Exception, error:
-        print >> sys.stderr, "Couldn't install app '%s': %s" % \
-                             (app_name, error)
+    except Exception as error:
+        print("Couldn't install app '%s': %s" % (app_name, error),
+              file=sys.stderr)
         sys.exit(1)
 
     rows = ""
@@ -152,7 +152,7 @@ def graph_query(app_name, question):
             output, _ = call.communicate()
         except OSError:
             msg = "Error running '{}': the program 'dot' was not found."
-            print msg.format(cmdline)
+            print(msg.format(cmdline))
             sys.exit(1)
 
         image_base64 = base64.b64encode(output)
@@ -173,9 +173,9 @@ def print_tags(app_name, text):
     try:
         # Install the app to set the settings
         quepy.install(app_name)
-    except Exception, error:
-        print >> sys.stderr, "Couldn't install app '%s': %s" % \
-                             (app_name, error)
+    except Exception as error:
+        print("Couldn't install app '%s': %s" % (app_name, error),
+              file=sys.stderr)
         sys.exit(1)
 
     text = text.decode("ascii")
@@ -183,14 +183,14 @@ def print_tags(app_name, text):
     tagger_out = tagger(text)
 
     attrs = "TOKEN LEMMA POS PROB".split()
-    print " ".join(["{:13.13}".format(x) for x in attrs])
+    print(" ".join(["{:13.13}".format(x) for x in attrs]))
     for word in tagger_out:
-        attrs = unicode(word).split("|")
-        print " ".join(["{:13.13}".format(x) for x in attrs])
+        attrs = word.split("|")
+        print(" ".join(["{:13.13}".format(x) for x in attrs]))
 
 
 def nltkdata(path):
-    print "Preparing to download..."
+    print("Preparing to download...")
     import nltk
     try:
         os.mkdir(path)
@@ -198,7 +198,7 @@ def nltkdata(path):
         pass
     nltk.download("wordnet", path)
     nltk.download("averaged_perceptron_tagger", path)
-    print "Finished"
+    print("Finished")
 
 
 def autotest(app_name):
@@ -212,9 +212,9 @@ def autotest(app_name):
     try:
         # Install the app to set the settings
         quepy.install(app_name)
-    except Exception, error:
-        print >> sys.stderr, "Couldn't install app '%s': %s" % \
-                             (app_name, error)
+    except Exception as error:
+        print("Couldn't install app '%s': %s" % (app_name, error),
+              file=sys.stderr)
         sys.exit(1)
 
     parsing_module = __import__("{0}.parsing".format(app_name), fromlist=[None])
@@ -233,26 +233,26 @@ def autotest(app_name):
         regex = regex_class.regex + refo.Literal(_EOL)
 
         for text in regex_list[regex_class]:
-            print "Testing {}...".format(text),
+            print("Testing {}...".format(text),)
             text = encoding_flexible_conversion(text)
             tagger = quepy.tagger.get_tagger()
             words = tagger(text)
 
             match = refo.match(regex, words + [_EOL])
             if not match:
-                print "ERROR"
+                print("ERROR")
                 if not errors_found:
                     errors_found = True
-                    print "The following errors have been found:\n"
+                    print("The following errors have been found:\n")
 
-                print regex_class.__name__
-                print words
-                print
+                print(regex_class.__name__)
+                print(words)
+                print()
             else:
-                print "OK"
+                print("OK")
 
     if not errors_found:
-        print "No errors were found :)"
+        print("No errors were found :)")
 
 
 if __name__ == "__main__":
