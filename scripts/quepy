@@ -29,7 +29,6 @@ from xml.sax.saxutils import escape
 
 import quepy
 from quepy import generation
-from quepy.encodingpolicy import encoding_flexible_conversion
 
 
 HTML_TEMPLATE = """
@@ -234,7 +233,6 @@ def autotest(app_name):
 
         for text in regex_list[regex_class]:
             print("Testing {}...".format(text),)
-            text = encoding_flexible_conversion(text)
             tagger = quepy.tagger.get_tagger()
             words = tagger(text)
 

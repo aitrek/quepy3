@@ -11,7 +11,6 @@ import refo
 import logging
 from refo import Predicate, Literal, Star, Any, Group
 
-from quepy.encodingpolicy import encoding_flexible_conversion
 
 _EOL = None
 logger = logging.getLogger("quepy.parsing")
@@ -136,7 +135,6 @@ class Pos(Predicate):
     """
 
     def __init__(self, tag):
-        tag = encoding_flexible_conversion(tag)
         self.tag = tag
         super(Pos, self).__init__(self._predicate)
         self.arg = tag
@@ -196,7 +194,6 @@ class Particle(Group):
 def _predicate_sum_from_string(string, predicate):
     assert issubclass(predicate, Predicate)
 
-    string = encoding_flexible_conversion(string)
     words = string.split()
     result = None
     for word in words:

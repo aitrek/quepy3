@@ -17,13 +17,11 @@ Tagging using NLTK.
 
 import nltk
 from quepy.tagger import Word
-from quepy.encodingpolicy import assert_valid_encoding
 
 _penn_to_morphy_tag = {}
 
 
 def penn_to_morphy_tag(tag):
-    assert_valid_encoding(tag)
 
     for penn, morphy in _penn_to_morphy_tag.iteritems():
         if tag.startswith(penn):
@@ -36,7 +34,6 @@ def run_nltktagger(string, nltk_data_path=None):
     Runs nltk tagger on `string` and returns a list of
     :class:`quepy.tagger.Word` objects.
     """
-    assert_valid_encoding(string)
     global _penn_to_morphy_tag
 
     if nltk_data_path:

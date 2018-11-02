@@ -13,13 +13,12 @@ Implements the Quepy Application API
 
 import logging
 from importlib import import_module
-from types import ModuleType
+# from types import ModuleType
 
 from quepy import settings
 from quepy import generation
 from quepy.parsing import QuestionTemplate
 from quepy.tagger import get_tagger, TaggingError
-from quepy.encodingpolicy import encoding_flexible_conversion
 
 logger = logging.getLogger("quepy.quepyapp")
 
@@ -38,7 +37,7 @@ def install(app_name):
     for module_name, module_path in module_paths.iteritems():
         try:
             modules[module_name] = import_module(module_path.format(app_name))
-        except ImportError, error:
+        except ImportError as error:
             message = u"Error importing {0!r}: {1}"
             raise ImportError(message.format(module_name, error))
 
@@ -61,8 +60,8 @@ class QuepyApp(object):
         Creates the application based on `parsing`, `settings` modules.
         """
 
-        assert isinstance(parsing, ModuleType)
-        assert isinstance(settings, ModuleType)
+        # assert isinstance(parsing, ModuleType)
+        # assert isinstance(settings, ModuleType)
 
         self._parsing_module = parsing
         self._settings_module = settings
@@ -119,7 +118,6 @@ class QuepyApp(object):
         The queries returned corresponds to the regexes that match in
         weight order.
         """
-        question = encoding_flexible_conversion(question)
         for expression, userdata in self._iter_compiled_forms(question):
             target, query = generation.get_code(expression, self.language)
             message = u"Interpretation {1}: {0}"
@@ -157,6 +155,4 @@ class QuepyApp(object):
         for key in dir(self._settings_module):
             if key.upper() == key:
                 value = getattr(self._settings_module, key)
-                if isinstance(value, str):
-                    value = encoding_flexible_conversion(value)
                 setattr(settings, key, value)

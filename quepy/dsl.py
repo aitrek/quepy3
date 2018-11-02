@@ -14,7 +14,6 @@ Domain specific language definitions.
 
 from copy import copy
 from quepy.expression import Expression
-from quepy.encodingpolicy import encoding_flexible_conversion
 
 
 class FixedRelation(Expression):
@@ -52,9 +51,6 @@ class FixedType(Expression):
         if self.fixedtype is None:
             raise ValueError("You *must* define the `fixedtype` "
                              "class attribute to use this class.")
-        self.fixedtype = encoding_flexible_conversion(self.fixedtype)
-        self.fixedtyperelation = \
-            encoding_flexible_conversion(self.fixedtyperelation)
         self.add_data(self.fixedtyperelation, self.fixedtype)
 
 
@@ -72,9 +68,7 @@ class FixedDataRelation(Expression):
         if self.relation is None:
             raise ValueError("You *must* define the `relation` "
                              "class attribute to use this class.")
-        self.relation = encoding_flexible_conversion(self.relation)
         if self.language is not None:
-            self.language = encoding_flexible_conversion(self.language)
             data = u"\"{0}\"@{1}".format(data, self.language)
         self.add_data(self.relation, data)
 

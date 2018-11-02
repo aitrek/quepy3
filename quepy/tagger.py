@@ -10,7 +10,6 @@
 import logging
 
 from quepy import settings
-from quepy.encodingpolicy import assert_valid_encoding
 
 logger = logging.getLogger("quepy.tagger")
 PENN_TAGSET = set(u"$ `` '' ( ) , -- . : CC CD DT EX FW IN JJ JJR JJS LS MD "
@@ -41,8 +40,8 @@ class Word(object):
         self.token = token
 
     def __setattr__(self, name, value):
-        if name in self._encoding_attrs and value is not None:
-            assert_valid_encoding(value)
+        # if name in self._encoding_attrs and value is not None:
+        #     assert_valid_encoding(value)
         object.__setattr__(self, name, value)
 
     def __unicode__(self):
@@ -50,7 +49,7 @@ class Word(object):
         return u"|".join(str(x) for x in attrs)
 
     def __repr__(self):
-        return unicode(self)
+        return str(self)
 
 
 def get_tagger():
@@ -64,7 +63,6 @@ def get_tagger():
     tagger_function = lambda x: run_nltktagger(x, settings.NLTK_DATA_PATH)
 
     def wrapper(string):
-        assert_valid_encoding(string)
         words = tagger_function(string)
         for word in words:
             if word.pos not in PENN_TAGSET:
