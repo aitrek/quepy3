@@ -29,8 +29,8 @@ dbpedia = quepy.install("dbpedia")
 def print_define(results, target, metadata=None):
     for result in results["results"]["bindings"]:
         if result[target]["xml:lang"] == "en":
-            print result[target]["value"]
-            print
+            print(result[target]["value"])
+            print()
 
 
 def print_enum(results, target, metadata=None):
@@ -42,16 +42,16 @@ def print_enum(results, target, metadata=None):
                 label = result[target]["value"]
                 if label not in used_labels:
                     used_labels.append(label)
-                    print label
+                    print(label)
 
 
 def print_literal(results, target, metadata=None):
     for result in results["results"]["bindings"]:
         literal = result[target]["value"]
         if metadata:
-            print metadata.format(literal)
+            print(metadata.format(literal))
         else:
-            print literal
+            print(literal)
 
 
 def print_time(results, target, metadata=None):
@@ -83,11 +83,11 @@ def print_time(results, target, metadata=None):
             location_string = random.choice(["where you are",
                                              "your location"])
 
-            print "Between %s %s %s, depending on %s" % \
+            print("Between %s %s %s, depending on %s" % \
                   (from_time.strftime("%H:%M"),
                    connector,
                    to_time.strftime("%H:%M on %A"),
-                   location_string)
+                   location_string))
 
         else:
             offset = int(offset)
@@ -95,7 +95,7 @@ def print_time(results, target, metadata=None):
             delta = datetime.timedelta(hours=offset)
             the_time = gmt + delta
 
-            print the_time.strftime("%H:%M on %A")
+            print(the_time.strftime("%H:%M on %A"))
 
 
 def print_age(results, target, metadata=None):
@@ -110,7 +110,7 @@ def print_age(results, target, metadata=None):
     now = now.date()
 
     age = now - birth_date
-    print "{} years old".format(age.days / 365)
+    print("{} years old".format(age.days / 365))
 
 
 def wikipedia2dbpedia(wikipedia_url):
@@ -131,7 +131,7 @@ def wikipedia2dbpedia(wikipedia_url):
     results = sparql.query().convert()
 
     if not results["results"]["bindings"]:
-        print "Snorql URL not found"
+        print("Snorql URL not found")
         sys.exit(1)
     else:
         return results["results"]["bindings"][0]["url"]["value"]
@@ -163,7 +163,7 @@ if __name__ == "__main__":
         question = " ".join(sys.argv[1:])
 
         if question.count("wikipedia.org"):
-            print wikipedia2dbpedia(sys.argv[1])
+            print(wikipedia2dbpedia(sys.argv[1]))
             sys.exit(0)
         else:
             questions = [question]
@@ -179,8 +179,8 @@ if __name__ == "__main__":
     }
 
     for question in questions:
-        print question
-        print "-" * len(question)
+        print(question)
+        print("-" * len(question))
 
         target, query, metadata = dbpedia.get_query(question)
 
@@ -192,10 +192,10 @@ if __name__ == "__main__":
             metadata = None
 
         if query is None:
-            print "Query not generated :(\n"
+            print("Query not generated :(\n")
             continue
 
-        print query
+        print(query)
 
         if target.startswith("?"):
             target = target[1:]
@@ -205,8 +205,8 @@ if __name__ == "__main__":
             results = sparql.query().convert()
 
             if not results["results"]["bindings"]:
-                print "No answer found :("
+                print( "No answer found :(")
                 continue
 
         print_handlers[query_type](results, target, metadata)
-        print
+        print()
