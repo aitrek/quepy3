@@ -23,7 +23,7 @@ _penn_to_morphy_tag = {}
 
 def penn_to_morphy_tag(tag):
 
-    for penn, morphy in _penn_to_morphy_tag.iteritems():
+    for penn, morphy in _penn_to_morphy_tag.items():
         if tag.startswith(penn):
             return morphy
     return None
