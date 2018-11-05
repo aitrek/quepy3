@@ -174,7 +174,7 @@ class Expression(object):
         """
         Iterates the indexes (the unique identifiers) of the Expression nodes.
         """
-        return xrange(len(self.nodes))
+        return range(len(self.nodes))
 
     def iter_edges(self, node):
         """
