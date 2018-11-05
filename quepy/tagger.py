@@ -24,7 +24,7 @@ class TaggingError(Exception):
     pass
 
 
-class Word(object):
+class Word:
     """
     Representation of a tagged word.
     Contains *token*, *lemma*, *pos tag* and optionally a *probability* of
@@ -42,14 +42,14 @@ class Word(object):
     def __setattr__(self, name, value):
         # if name in self._encoding_attrs and value is not None:
         #     assert_valid_encoding(value)
-        object.__setattr__(self, name, value)
+        super().__setattr__(name, value)
 
     def __unicode__(self):
         attrs = (getattr(self, name, u"-") for name in self._attrs)
         return u"|".join(str(x) for x in attrs)
 
-    def __repr__(self):
-        return str(self)
+    # def __repr__(self):
+    #     return str(self)
 
 
 def get_tagger():
