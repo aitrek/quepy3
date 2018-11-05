@@ -11,11 +11,11 @@
 DBpedia quepy.
 """
 
-from basic import *
-from music import *
-from movies import *
-from people import *
-from country import *
-from populated_place import *
-from tvshows import *
-from writers import *
+from dbpedia.basic import *
+from dbpedia.music import *
+from dbpedia.movies import *
+from dbpedia.people import *
+from dbpedia.country import *
+from dbpedia.populated_place import *
+from dbpedia.tvshows import *
+from dbpedia.writers import *

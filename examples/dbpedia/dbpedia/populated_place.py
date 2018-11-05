@@ -14,7 +14,7 @@ Populated place related regex
 from refo import Plus, Question
 from quepy.dsl import HasKeyword
 from quepy.parsing import Lemma, Pos, QuestionTemplate, Token, Particle
-from dsl import IsPopulatedPlace, IncumbentOf, CapitalOf, \
+from dbpedia.dsl import IsPopulatedPlace, IncumbentOf, CapitalOf, \
     LabelOf, PopulationOf
 
 

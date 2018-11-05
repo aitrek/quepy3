@@ -15,7 +15,7 @@ from refo import Group, Plus, Question
 from quepy.parsing import Lemma, Pos, QuestionTemplate, Token, Particle, \
                           Lemmas
 from quepy.dsl import HasKeyword, IsRelatedTo, HasType
-from dsl import DefinitionOf, LabelOf, IsPlace, \
+from dbpedia.dsl import DefinitionOf, LabelOf, IsPlace, \
     UTCof, LocationOf
 
 

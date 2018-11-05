@@ -14,7 +14,7 @@ People related regex
 from refo import Plus, Question
 from quepy.dsl import HasKeyword
 from quepy.parsing import Lemma, Lemmas, Pos, QuestionTemplate, Particle
-from dsl import IsPerson, LabelOf, DefinitionOf, BirthDateOf, BirthPlaceOf
+from dbpedia.dsl import IsPerson, LabelOf, DefinitionOf, BirthDateOf, BirthPlaceOf
 
 
 class Person(Particle):

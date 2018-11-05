@@ -61,7 +61,7 @@ class CommandNotFound(Exception):
 
 
 def startapp(name):
-    san_name = name.decode("ascii", "ignore").lower().replace(" ", "_")
+    san_name = name.lower().replace(" ", "_")
     header_template = "# coding: utf-8\n\n"
     main_template = "import quepy\n" \
                     "{san_name} = quepy.install(\"{name}\")\n"
@@ -116,7 +116,7 @@ def startapp(name):
     with open(settings_filename, "w") as fh:
         fh.write(settings_content)
 
-    print( "Application template created on: {}".format(san_name))
+    print("Application template created on: {}".format(san_name))
 
 
 def print_version():
@@ -254,18 +254,19 @@ def autotest(app_name):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__)
-    if args["startapp"]:
-        startapp(args["<name>"])
-    elif args["graph"]:
-        question = " ".join(args["<question>"])
-        graph_query(args["<app_name>"], question)
-    elif args["nltkdata"]:
-        nltkdata(args["<path>"])
-    elif args["tag"]:
-        text = " ".join(args["<text>"])
-        print_tags(args["<app_name>"], text)
-    elif args["autotest"]:
-        autotest(args["<app_name>"])
-    elif args["-v"] or args["--version"]:
-        print_version()
+    # args = docopt(__doc__)
+    # if args["startapp"]:
+    #     startapp(args["<name>"])
+    # elif args["graph"]:
+    #     question = " ".join(args["<question>"])
+    #     graph_query(args["<app_name>"], question)
+    # elif args["nltkdata"]:
+    #     nltkdata(args["<path>"])
+    # elif args["tag"]:
+    #     text = " ".join(args["<text>"])
+    #     print_tags(args["<app_name>"], text)
+    # elif args["autotest"]:
+    #     autotest(args["<app_name>"])
+    # elif args["-v"] or args["--version"]:
+    #     print_version()
+    startapp("dbpedia")
