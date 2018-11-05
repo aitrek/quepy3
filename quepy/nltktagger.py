@@ -59,16 +59,11 @@ def run_nltktagger(string, nltk_data_path=None):
         word = Word(token)
         # Eliminates stuff like JJ|CC
         # decode ascii because they are the penn-like POS tags (are ascii).
-        word.pos = pos.split("|")[0].decode("ascii")
+        word.pos = pos.split("|")[0]
 
         mtag = penn_to_morphy_tag(word.pos)
         # Nice shooting, son. What's your name?
         lemma = wordnet.morphy(word.token, pos=mtag)
-        if isinstance(lemma, str):
-            # In this case lemma is example-based, because if it's rule based
-            # the result should be unicode (input was unicode).
-            # Since english is ascii the decoding is ok.
-            lemma = lemma.decode("ascii")
         word.lemma = lemma
         if word.lemma is None:
             word.lemma = word.token.lower()
