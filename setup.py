@@ -4,7 +4,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(
-    name="quepy",
+    name="quepy3",
     version="0.3",
     description="A framework to convert natural language to database queries.",
     long_description=open('README.rst').read(),
