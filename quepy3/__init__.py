@@ -14,7 +14,7 @@ Quepy converts Natural Language Question to database queries.
 VERSION = 0.3
 
 import logging
-from quepy.quepyapp import install, QuepyApp
+from quepy3.quepyapp import install, QuepyApp
 
 
 def set_loglevel(level=logging.WARNING):

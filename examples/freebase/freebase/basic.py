@@ -13,8 +13,8 @@ Basic questions for Freebase.
 
 from refo import Question, Plus
 from dsl import DefinitionOf, NameOf, LocationOf
-from quepy.dsl import HasKeyword
-from quepy.parsing import QuestionTemplate, Particle, Lemma, Pos, Lemmas
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import QuestionTemplate, Particle, Lemma, Pos, Lemmas
 
 
 class Thing(Particle):

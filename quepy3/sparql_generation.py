@@ -4,9 +4,9 @@
 Sparql generation code.
 """
 
-from quepy import settings
-from quepy.dsl import IsRelatedTo
-from quepy.expression import isnode
+from quepy3 import settings
+from quepy3.dsl import IsRelatedTo
+from quepy3.expression import isnode
 
 _indent = u"  "
 

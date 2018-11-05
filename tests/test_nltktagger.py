@@ -13,8 +13,8 @@ Tests for nltktagger.
 """
 
 import unittest
-from quepy import nltktagger
-from quepy.tagger import Word
+from quepy3 import nltktagger
+from quepy3.tagger import Word
 
 
 class TestNLTKTagger(unittest.TestCase):

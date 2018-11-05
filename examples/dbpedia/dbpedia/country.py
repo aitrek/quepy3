@@ -12,8 +12,8 @@ Country related regex
 """
 
 from refo import Plus, Question
-from quepy.dsl import HasKeyword
-from quepy.parsing import Lemma, Pos, QuestionTemplate, Token, Particle
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import Lemma, Pos, QuestionTemplate, Token, Particle
 from dbpedia.dsl import IsCountry, IncumbentOf, CapitalOf, \
     LabelOf, LanguageOf, PopulationOf, PresidentOf
 

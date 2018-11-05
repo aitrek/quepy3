@@ -13,8 +13,8 @@ Regex for testapp quepy.
 """
 
 from refo import Star, Any
-from quepy.dsl import HasKeyword
-from quepy.parsing import QuestionTemplate, Token
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import QuestionTemplate, Token
 
 
 class LowMatchAny(QuestionTemplate):

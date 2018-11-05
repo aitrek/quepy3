@@ -11,8 +11,8 @@ import re
 import unittest
 from random_expression import random_expression
 from random import seed
-from quepy.sparql_generation import expression_to_sparql
-from quepy.dsl import FixedRelation, FixedType, \
+from quepy3.sparql_generation import expression_to_sparql
+from quepy3.dsl import FixedRelation, FixedType, \
     FixedDataRelation
 
 

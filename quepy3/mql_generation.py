@@ -2,8 +2,8 @@
 
 import re
 import json
-from quepy.dsl import IsRelatedTo
-from quepy.expression import isnode
+from quepy3.dsl import IsRelatedTo
+from quepy3.expression import isnode
 
 
 def choose_start_node(e):

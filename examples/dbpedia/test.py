@@ -1,8 +1,8 @@
-import quepy
+import quepy3
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 
-dbpedia = quepy.install("dbpedia")
+dbpedia = quepy3.install("dbpedia")
 target, query, metadata = dbpedia.get_query("Who is Michael Jordan?")
 
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")

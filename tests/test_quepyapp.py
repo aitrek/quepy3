@@ -14,13 +14,13 @@ Tests for QuepyApp.
 
 import unittest
 
-import quepy
+import quepy3
 
 
 class TestQuepyApp(unittest.TestCase):
 
     def setUp(self):
-        self.app = quepy.install("testapp")
+        self.app = quepy3.install("testapp")
 
     def test_get_query_types(self):
         question = "What is this?"
@@ -40,7 +40,7 @@ class TestQuepyApp(unittest.TestCase):
         self.assertEqual(userdata, 42)
 
     def test_config_is_saved(self):
-        from quepy import settings
+        from quepy3 import settings
         self.assertIn("testapp", settings.SPARQL_PREAMBLE)
 
 

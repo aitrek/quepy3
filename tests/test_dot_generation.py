@@ -12,8 +12,8 @@ import tempfile
 import subprocess
 from random_expression import random_expression
 from random import seed
-from quepy.dot_generation import expression_to_dot
-from quepy.dsl import FixedRelation, FixedType, \
+from quepy3.dot_generation import expression_to_dot
+from quepy3.dsl import FixedRelation, FixedType, \
     FixedDataRelation
 
 

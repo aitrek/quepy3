@@ -14,8 +14,8 @@ Writers related regex.
 
 from dsl import *
 from refo import Plus, Question
-from quepy.dsl import HasKeyword
-from quepy.parsing import Lemma, Lemmas, Pos, QuestionTemplate, Particle
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import Lemma, Lemmas, Pos, QuestionTemplate, Particle
 
 
 nouns = Pos("DT") | Pos("IN") | Pos("NN") | Pos("NNS") | Pos("NNP") | Pos("NNPS")

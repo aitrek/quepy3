@@ -4,5 +4,5 @@
 Main script for dbpedia quepy.
 """
 
-import quepy
-dbpedia = quepy.install("dbpedia")
+import quepy3
+dbpedia = quepy3.install("dbpedia")

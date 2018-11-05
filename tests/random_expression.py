@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import random
-from quepy.expression import Expression
+from quepy3.expression import Expression
 
 
 def random_data(only_ascii=False):

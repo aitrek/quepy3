@@ -9,7 +9,7 @@
 
 import logging
 
-from quepy import settings
+from quepy3 import settings
 
 logger = logging.getLogger("quepy.tagger")
 PENN_TAGSET = set(u"$ `` '' ( ) , -- . : CC CD DT EX FW IN JJ JJR JJS LS MD "
@@ -59,7 +59,7 @@ def get_tagger():
     The returned value is a function that receives a unicode string and returns
     a list of `Word` instances.
     """
-    from quepy.nltktagger import run_nltktagger
+    from quepy3.nltktagger import run_nltktagger
     tagger_function = lambda x: run_nltktagger(x, settings.NLTK_DATA_PATH)
 
     def wrapper(string):

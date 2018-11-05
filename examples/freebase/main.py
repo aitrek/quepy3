@@ -12,12 +12,12 @@ Options:
 """
 
 import json
-import quepy
+import quepy3
 import urllib
 from docopt import docopt
 
 service_url = 'https://www.googleapis.com/freebase/v1/mqlread'
-freebase = quepy.install("freebase")
+freebase = quepy3.install("freebase")
 
 
 def request(query):

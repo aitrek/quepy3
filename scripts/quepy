@@ -27,8 +27,8 @@ import subprocess
 from docopt import docopt
 from xml.sax.saxutils import escape
 
-import quepy
-from quepy import generation
+import quepy3
+from quepy3 import generation
 
 
 HTML_TEMPLATE = """
@@ -83,7 +83,7 @@ def startapp(name):
     dsl_filename = os.path.join(folder, folder, "dsl.py")
 
     # We'll copy the content of the settings on quepy to the app
-    quepy_folder = os.path.dirname(quepy.__file__)
+    quepy_folder = os.path.dirname(quepy3.__file__)
     settings_real_file = os.path.join(quepy_folder, "settings.py")
     settings_filename = os.path.join(folder, folder, "settings.py")
 
@@ -120,7 +120,7 @@ def startapp(name):
 
 
 def print_version():
-    print("Quepy {0}".format(quepy.VERSION))
+    print("Quepy {0}".format(quepy3.VERSION))
 
 
 def graph_query(app_name, question):
@@ -129,7 +129,7 @@ def graph_query(app_name, question):
     sys.path.append(os.getcwd())
 
     try:
-        app = quepy.install(app_name)
+        app = quepy3.install(app_name)
     except Exception as error:
         print("Couldn't install app '%s': %s" % (app_name, error),
               file=sys.stderr)
@@ -171,14 +171,14 @@ def print_tags(app_name, text):
 
     try:
         # Install the app to set the settings
-        quepy.install(app_name)
+        quepy3.install(app_name)
     except Exception as error:
         print("Couldn't install app '%s': %s" % (app_name, error),
               file=sys.stderr)
         sys.exit(1)
 
     text = text.decode("ascii")
-    tagger = quepy.tagger.get_tagger()
+    tagger = quepy3.tagger.get_tagger()
     tagger_out = tagger(text)
 
     attrs = "TOKEN LEMMA POS PROB".split()
@@ -210,7 +210,7 @@ def autotest(app_name):
 
     try:
         # Install the app to set the settings
-        quepy.install(app_name)
+        quepy3.install(app_name)
     except Exception as error:
         print("Couldn't install app '%s': %s" % (app_name, error),
               file=sys.stderr)
@@ -222,7 +222,7 @@ def autotest(app_name):
     for attr_name in dir(parsing_module):
         attr = getattr(parsing_module, attr_name)
         try:
-            if issubclass(attr, quepy.parsing.QuestionTemplate):
+            if issubclass(attr, quepy3.parsing.QuestionTemplate):
                 examples = example_re.findall(attr.__doc__)
                 regex_list[attr] = examples
         except TypeError:
@@ -233,7 +233,7 @@ def autotest(app_name):
 
         for text in regex_list[regex_class]:
             print("Testing {}...".format(text),)
-            tagger = quepy.tagger.get_tagger()
+            tagger = quepy3.tagger.get_tagger()
             words = tagger(text)
 
             match = refo.match(regex, words + [_EOL])

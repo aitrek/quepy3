@@ -11,7 +11,7 @@
 Domain specific language of freebase app.
 """
 
-from quepy.dsl import FixedType, FixedRelation, FixedDataRelation, HasKeyword
+from quepy3.dsl import FixedType, FixedRelation, FixedDataRelation, HasKeyword
 
 # Setup the Keywords for this application
 HasKeyword.relation = "/type/object/name"

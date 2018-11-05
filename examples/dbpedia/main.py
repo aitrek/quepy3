@@ -17,11 +17,11 @@ import time
 import random
 import datetime
 
-import quepy
+import quepy3
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")
-dbpedia = quepy.install("dbpedia")
+dbpedia = quepy3.install("dbpedia")
 
 # quepy.set_loglevel("DEBUG")
 
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     ]
 
     if "-d" in sys.argv:
-        quepy.set_loglevel("DEBUG")
+        quepy3.set_loglevel("DEBUG")
         sys.argv.remove("-d")
 
     if len(sys.argv) > 1:

@@ -12,8 +12,8 @@ Populated place related regex
 """
 
 from refo import Plus, Question
-from quepy.dsl import HasKeyword
-from quepy.parsing import Lemma, Pos, QuestionTemplate, Token, Particle
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import Lemma, Pos, QuestionTemplate, Token, Particle
 from dbpedia.dsl import IsPopulatedPlace, IncumbentOf, CapitalOf, \
     LabelOf, PopulationOf
 

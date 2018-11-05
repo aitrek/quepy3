@@ -16,7 +16,7 @@ Tagging using NLTK.
 #   - "wordnet" in Corpora
 
 import nltk
-from quepy.tagger import Word
+from quepy3.tagger import Word
 
 _penn_to_morphy_tag = {}
 

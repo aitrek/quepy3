@@ -15,10 +15,10 @@ import logging
 from importlib import import_module
 # from types import ModuleType
 
-from quepy import settings
-from quepy import generation
-from quepy.parsing import QuestionTemplate
-from quepy.tagger import get_tagger, TaggingError
+from quepy3 import settings
+from quepy3 import generation
+from quepy3.parsing import QuestionTemplate
+from quepy3.tagger import get_tagger, TaggingError
 
 logger = logging.getLogger("quepy.quepyapp")
 

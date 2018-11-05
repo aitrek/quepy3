@@ -11,7 +11,7 @@ import json
 from random import seed
 import unittest
 from random_expression import random_expression
-from quepy.mql_generation import generate_mql
+from quepy3.mql_generation import generate_mql
 
 
 class TestMqlGeneration(unittest.TestCase):

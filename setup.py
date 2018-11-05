@@ -30,7 +30,7 @@ setup(
         "Topic :: Text Processing",
         "Topic :: Utilities",
         ],
-    packages=["quepy"],
+    packages=["quepy3"],
     install_requires=["refo", "nltk", "SPARQLWrapper", "docopt"],
     scripts=["scripts/quepy"]
 )

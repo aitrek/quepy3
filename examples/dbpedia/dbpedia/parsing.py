@@ -1,6 +1,6 @@
 from refo import Group, Question
-from quepy.dsl import HasKeyword
-from quepy.parsing import Lemma, Pos, QuestionTemplate
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import Lemma, Pos, QuestionTemplate
 
 from dbpedia.dsl import IsDefinedIn
 

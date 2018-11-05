@@ -12,8 +12,8 @@ Movie related regex.
 """
 
 from refo import Plus, Question
-from quepy.dsl import HasKeyword
-from quepy.parsing import Lemma, Lemmas, Pos, QuestionTemplate, Particle
+from quepy3.dsl import HasKeyword
+from quepy3.parsing import Lemma, Lemmas, Pos, QuestionTemplate, Particle
 from dbpedia.dsl import IsMovie, NameOf, IsPerson, \
     DirectedBy, LabelOf, DurationOf, HasActor, HasName, ReleaseDateOf, \
     DirectorOf, StarsIn, DefinitionOf

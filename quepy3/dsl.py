@@ -13,7 +13,7 @@ Domain specific language definitions.
 """
 
 from copy import copy
-from quepy.expression import Expression
+from quepy3.expression import Expression
 
 
 class FixedRelation(Expression):

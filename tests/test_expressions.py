@@ -13,7 +13,7 @@ Tests for expressions.
 """
 
 import unittest
-from quepy.expression import Expression, isnode
+from quepy3.expression import Expression, isnode
 
 
 def make_canonical_expression(e):

@@ -12,9 +12,9 @@ Basic questions for DBpedia.
 """
 
 from refo import Group, Plus, Question
-from quepy.parsing import Lemma, Pos, QuestionTemplate, Token, Particle, \
+from quepy3.parsing import Lemma, Pos, QuestionTemplate, Token, Particle, \
                           Lemmas
-from quepy.dsl import HasKeyword, IsRelatedTo, HasType
+from quepy3.dsl import HasKeyword, IsRelatedTo, HasType
 from dbpedia.dsl import DefinitionOf, LabelOf, IsPlace, \
     UTCof, LocationOf
 

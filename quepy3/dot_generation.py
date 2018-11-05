@@ -5,8 +5,8 @@ Dot generation code.
 """
 
 import random
-from quepy.expression import isnode
-from quepy.dsl import IsRelatedTo, HasKeyword
+from quepy3.expression import isnode
+from quepy3.dsl import IsRelatedTo, HasKeyword
 
 
 def escape(x, add_quotes=True):

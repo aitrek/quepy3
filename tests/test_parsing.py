@@ -13,8 +13,8 @@ Tests for Regex module.
 """
 
 import unittest
-from quepy.parsing import QuestionTemplate, Particle, Lemma
-from quepy.tagger import Word
+from quepy3.parsing import QuestionTemplate, Particle, Lemma
+from quepy3.tagger import Word
 
 
 class Mockrule(object):

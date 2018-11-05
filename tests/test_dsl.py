@@ -8,8 +8,8 @@
 #          Gonzalo Garcia Berrotaran <ggarcia@machinalis.com>
 
 import unittest
-from quepy.expression import Expression
-from quepy.dsl import HasKeyword, FixedRelation, FixedType, \
+from quepy3.expression import Expression
+from quepy3.dsl import HasKeyword, FixedRelation, FixedType, \
     FixedDataRelation
 
 

@@ -13,7 +13,7 @@ Tests for tagger.
 """
 
 import unittest
-from quepy import tagger
+from quepy3 import tagger
 
 
 class TestTagger(unittest.TestCase):
